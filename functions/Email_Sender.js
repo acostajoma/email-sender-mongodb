@@ -22,8 +22,8 @@ exports = async function() {
   }
 
   // Acceder a los secretos correctamente
-  const emailUser = context.secrets.get('EMAIL_USER');
-  const mailerSendApiKey = context.secrets.get('MAILER_SEND_API_KEY');
+  const emailUser = context.values.get('EMAIL_USER');
+  const mailerSendApiKey = context.values.get('MAILER_SEND_API_KEY');
 
   const mailersend = new MailerSend({
     api_key: mailerSendApiKey
