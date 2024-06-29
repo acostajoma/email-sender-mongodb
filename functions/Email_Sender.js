@@ -6,7 +6,7 @@ exports = async function() {
   const mongodb = context.services.get("mongodb-atlas");
 
   // Acceder a los valores correctamente
-  const databaseName = context.environments.values.databaseName
+    const databaseName = context.environment.values['databaseName']
   const db = mongodb.db(databaseName); 
   const collection = db.collection("ContactData");
 
@@ -22,9 +22,8 @@ exports = async function() {
   }
 
   // Acceder a los secretos correctamente
-  const environment = context.environment.tag
-  const emailUser = context.values.get(emailUser)
-  const mailerSendApiKey = context.values.get(`mailerSendApiKey_${environment}`);
+  const emailUser = context.values.get("emailUser")
+  const mailerSendApiKey = context.values.get("mailerSendApiKey");
   
 
   const mailersend = new MailerSend({
