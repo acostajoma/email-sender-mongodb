@@ -1,7 +1,5 @@
 exports = async function() {
-  const MailerSend = require("mailersend");
-  const Recipient = MailerSend.Recipient;
-  const EmailParams = MailerSend.EmailParams;
+  const { MailerSend, EmailParams, Sender, Recipient } = require("mailersend");
 
   const mongodb = context.services.get("mongodb-atlas");
 
@@ -30,18 +28,20 @@ exports = async function() {
     api_key: mailerSendApiKey
   });
 
-  const recipients = [new Recipient(emailUser, "Recipient")]; // Replace with recipient email
+  const sentFrom = new Sender(emailUser, "Rids.agency");
+  const recipients = [new Recipient(emailUser, "Jose")]; // Replace with recipient email
 
   const emailParams = new EmailParams()
-    .setFrom(emailUser) // Use EMAIL_USER for the sender email
-    .setFromName("Macosta") // Replace with your name
-    .setRecipients(recipients)
+    .setFrom(sentFrom)
+    .setTo(recipients)
+    .setReplyTo(sentFrom)
     .setSubject("Database Report - New Entries")
     .setHtml(`<pre>${JSON.stringify(data, null, 2)}</pre>`)
     .setText(JSON.stringify(data, null, 2));
 
+  
   try {
-    await mailersend.send(emailParams);
+    await mailersend.email.send(emailParams);
     console.log('Email sent successfully.');
   } catch (error) {
     console.error('Error sending email:', error);
