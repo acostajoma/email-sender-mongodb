@@ -23,7 +23,7 @@ exports = async function() {
 
   // Acceder a los secretos correctamente
   const environment = context.environment.tag
-  const emailUser = context.environments.values.emailUser
+  const emailUser = context.values.get(emailUser)
   const mailerSendApiKey = context.values.get(`mailerSendApiKey_${environment}`);
   
 
