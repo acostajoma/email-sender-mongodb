@@ -1,3 +1,8 @@
 {
-    "values": {}
+    "values": {
+        "DATABASE_NAME": "Development"
+    },
+    "secrets": {
+        "MAILER_SEND_API_KEY" : "mlsn.044e7e4134532e0096d6ae8253537ac6f9b7de856d96d06decb801c172e1f8d8"
+    }
 }
