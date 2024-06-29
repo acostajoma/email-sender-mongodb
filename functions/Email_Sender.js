@@ -4,7 +4,7 @@ exports = async function() {
     const EmailParams = MailerSend.EmailParams;
   
     const mongodb = context.services.get("mongodb-atlas");
-    const databaseName =  context.secrets.get('DATABASE_NAME');
+    const databaseName =  context.environments.values.get('DATABASE_NAME');
     const db = mongodb.db("Development"); 
     const collection = db.collection("ContactData");
   
@@ -19,14 +19,14 @@ exports = async function() {
       return;
     }
   
-    const emailUser = context.secrets.get('EMAIL_USER');
-    const mailerSendApiKey = context.secrets.get('MAILER_SEND_API_KEY');
+    const emailUser = context.environments.secrets.get('EMAIL_USER');
+    const mailerSendApiKey = context.environments.secrets.get('MAILER_SEND_API_KEY');
   
     const mailersend = new MailerSend({
       api_key: mailerSendApiKey
     });
   
-    const recipients = [new Recipient("jose@macosta.dev", "Recipient")]; // Replace with recipient email
+    const recipients = [new Recipient(emailUser, "Recipient")]; // Replace with recipient email
   
     const emailParams = new EmailParams()
       .setFrom(emailUser) // Use EMAIL_USER for the sender email
