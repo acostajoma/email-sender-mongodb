@@ -1,0 +1,5 @@
+{
+    "name": "emailUser",
+    "value": "myEmail",
+    "from_secret": true
+}

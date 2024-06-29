@@ -1,6 +1,5 @@
 {
     "values": {
-        "databaseName": "Development",
-        "emailUser" : "jose@macosta.dev"
+        "databaseName": "Development"
     }
 }
