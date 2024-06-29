@@ -1,7 +1,7 @@
 {
     "values": {
-        "DATABASE_NAME": "Production",
-        "EMAIL_USER" : "jose@macosta.dev"
+        "databaseName": "Production",
+        "emailUser" : "jose@macosta.dev"
     }
 }
 
