@@ -24,7 +24,7 @@ exports = async function () {
   const mailerSendApiKey = context.values.get("mailerSendApiKey");
 
   const mailersend = new MailerSend({
-    api_key: mailerSendApiKey,
+    apiKey: mailerSendApiKey,
   });
 
   const sentFrom = new Sender(emailUser, "Rids.agency");
