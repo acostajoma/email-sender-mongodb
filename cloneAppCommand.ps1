@@ -1,4 +1,4 @@
-appservices app create --name "rids-agency"  --deployment-model "LOCAL"  --provider-region "gcp-us-central1"  --cluster  "Prod"  --environment "production" 
+appservices app create --name "rids-agency"  --deployment-model "LOCAL"  --provider-region "gcp-us-central1"  --cluster  "Production"  --environment "production" 
 
 
 
