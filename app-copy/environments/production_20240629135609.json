@@ -1,0 +1,10 @@
+{
+    "values": {
+        "DATABASE_NAME": "Production",
+        "EMAIL_USER" : "jose@macosta.dev"
+    },
+    "secrets": {
+        "MAILER_SEND_API_KEY" : "mlsn.0f62924ab487110de2b937f59fbd45381f3f352ed0aa0d0b0bc6f10fe7ed3b14"
+    }
+}
+

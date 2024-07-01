@@ -1,0 +1,6 @@
+{
+    "values": {
+        "DATABASE_NAME": "Development",
+        "EMAIL_USER" : "jose@macosta.dev"
+    }
+}

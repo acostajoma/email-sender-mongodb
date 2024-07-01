@@ -1,0 +1,6 @@
+{
+    "name": "rids-agency",
+    "provider_region": "gcp-us-central1",
+    "deployment_model": "LOCAL",
+    "environment": "development"
+}
