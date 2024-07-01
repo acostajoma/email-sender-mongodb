@@ -1,9 +1,0 @@
-{
-    "type": "SCHEDULED",
-    "name": "Email_Sender",
-    "function_name": "Email_Sender",
-    "config": {
-      "schedule": "0 */3 * * *"
-    },
-    "disabled": false
- }
