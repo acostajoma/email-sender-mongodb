@@ -1,11 +1,11 @@
-exports = async function() {
+exports = async function () {
   const { MailerSend, EmailParams, Sender, Recipient } = require("mailersend");
 
   const mongodb = context.services.get("mongodb-atlas");
 
   // Acceder a los valores correctamente
-    const databaseName = context.environment.values['databaseName']
-  const db = mongodb.db(databaseName); 
+  const databaseName = context.environment.values["databaseName"];
+  const db = mongodb.db(databaseName);
   const collection = db.collection("ContactData");
 
   const date = new Date();
@@ -15,17 +15,16 @@ exports = async function() {
   const data = await collection.find(query).toArray();
 
   if (data.length === 0) {
-    console.log('No new data, email not sent.');
+    console.log("No new data, email not sent.");
     return;
   }
 
   // Acceder a los secretos correctamente
-  const emailUser = context.values.get("emailUser")
+  const emailUser = context.values.get("emailUser");
   const mailerSendApiKey = context.values.get("mailerSendApiKey");
-  
 
   const mailersend = new MailerSend({
-    api_key: mailerSendApiKey
+    api_key: mailerSendApiKey,
   });
 
   const sentFrom = new Sender(emailUser, "Rids.agency");
@@ -39,11 +38,10 @@ exports = async function() {
     .setHtml(`<pre>${JSON.stringify(data, null, 2)}</pre>`)
     .setText(JSON.stringify(data, null, 2));
 
-  
   try {
     await mailersend.email.send(emailParams);
-    console.log('Email sent successfully.');
+    console.log("Email sent successfully.");
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
   }
 };
