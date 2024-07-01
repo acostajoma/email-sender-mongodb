@@ -1,8 +1,5 @@
 appservices app create --name "rids-agency"  --deployment-model "LOCAL"  --provider-region "gcp-us-central1"  --cluster  "Production"  --environment "production" 
 
-
-
-# Usage:
 #   appservices apps create [flags]
 
 # Flags:
