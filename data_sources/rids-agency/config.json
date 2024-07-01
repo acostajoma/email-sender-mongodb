@@ -1,0 +1,10 @@
+{
+    "name": "rids-agency",
+    "type": "mongodb-atlas",
+    "config": {
+        "clusterName": "Prod",
+        "readPreference": "primary",
+        "wireProtocolEnabled": false
+    },
+    "version": 1
+}
