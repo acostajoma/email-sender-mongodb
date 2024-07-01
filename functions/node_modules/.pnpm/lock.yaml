@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       mailersend:
-        specifier: ^2.2.0
+        specifier: 2.2.0
         version: 2.2.0
 
 packages:
